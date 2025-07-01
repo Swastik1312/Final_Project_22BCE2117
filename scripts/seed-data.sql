@@ -1,0 +1,196 @@
+-- QuickMart Seed Data Script
+-- This script represents the seed data that would be inserted into MongoDB
+-- Note: This is pseudo-SQL for documentation. Actual insertion would be done via MongoDB operations
+
+-- Seed Admin User
+-- db.users.insertOne({
+--   email: "admin@quickmart.com",
+--   password: "$2a$12$hashed_password_here", // bcrypt hash of "admin123"
+--   firstName: "Admin",
+--   lastName: "User",
+--   phone: "+1-555-0000",
+--   role: "admin",
+--   createdAt: new Date(),
+--   updatedAt: new Date()
+-- })
+
+-- Seed Sample Products
+-- db.products.insertMany([
+--   {
+--     name: "Fresh Organic Apples",
+--     description: "Fresh, crispy organic apples from local farms",
+--     price: 4.99,
+--     category: "fruits",
+--     stock: 150,
+--     lowStockAlert: 20,
+--     image: "https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=400&h=300&fit=crop",
+--     rating: 4.8,
+--     totalSales: 245,
+--     status: "active",
+--     createdAt: new Date(),
+--     updatedAt: new Date()
+--   },
+--   {
+--     name: "Artisan Bread Loaf",
+--     description: "Freshly baked artisan bread with whole grains",
+--     price: 6.50,
+--     category: "bakery",
+--     stock: 45,
+--     lowStockAlert: 10,
+--     image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=300&fit=crop",
+--     rating: 4.9,
+--     totalSales: 189,
+--     status: "active",
+--     createdAt: new Date(),
+--     updatedAt: new Date()
+--   },
+--   {
+--     name: "Premium Coffee Beans",
+--     description: "Premium arabica coffee beans, medium roast",
+--     price: 12.99,
+--     category: "beverages",
+--     stock: 5,
+--     lowStockAlert: 15,
+--     image: "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400&h=300&fit=crop",
+--     rating: 4.7,
+--     totalSales: 156,
+--     status: "low_stock",
+--     createdAt: new Date(),
+--     updatedAt: new Date()
+--   },
+--   {
+--     name: "Greek Yogurt",
+--     description: "Creamy Greek yogurt, high in protein",
+--     price: 5.99,
+--     category: "dairy",
+--     stock: 0,
+--     lowStockAlert: 25,
+--     image: "https://images.unsplash.com/photo-1571212515416-fca88c6c4b3c?w=400&h=300&fit=crop",
+--     rating: 4.6,
+--     totalSales: 98,
+--     status: "out_of_stock",
+--     createdAt: new Date(),
+--     updatedAt: new Date()
+--   },
+--   {
+--     name: "Fresh Salmon Fillet",
+--     description: "Wild-caught salmon fillet, sustainably sourced",
+--     price: 18.99,
+--     category: "seafood",
+--     stock: 25,
+--     lowStockAlert: 15,
+--     image: "https://images.unsplash.com/photo-1544943910-4c1dc44aab44?w=400&h=300&fit=crop",
+--     rating: 4.6,
+--     totalSales: 87,
+--     status: "active",
+--     createdAt: new Date(),
+--     updatedAt: new Date()
+--   },
+--   {
+--     name: "Organic Spinach",
+--     description: "Fresh organic spinach leaves, perfect for salads",
+--     price: 3.49,
+--     category: "vegetables",
+--     stock: 80,
+--     lowStockAlert: 20,
+--     image: "https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=400&h=300&fit=crop",
+--     rating: 4.5,
+--     totalSales: 156,
+--     status: "active",
+--     createdAt: new Date(),
+--     updatedAt: new Date()
+--   }
+-- ])
+
+-- Seed Sample Drivers
+-- db.users.insertMany([
+--   {
+--     email: "mike.driver@quickmart.com",
+--     password: "$2a$12$hashed_password_here", // bcrypt hash of "driver123"
+--     firstName: "Mike",
+--     lastName: "Johnson",
+--     phone: "+1-555-1001",
+--     role: "driver",
+--     vehicleType: "Motorcycle",
+--     licenseNumber: "DL123456",
+--     rating: 4.9,
+--     totalDeliveries: 245,
+--     currentLocation: {
+--       latitude: 40.7128,
+--       longitude: -74.0060,
+--       address: "Downtown Area"
+--     },
+--     status: "active",
+--     earnings: 1250.50,
+--     createdAt: new Date(),
+--     updatedAt: new Date()
+--   },
+--   {
+--     email: "sarah.driver@quickmart.com",
+--     password: "$2a$12$hashed_password_here", // bcrypt hash of "driver123"
+--     firstName: "Sarah",
+--     lastName: "Wilson",
+--     phone: "+1-555-1002",
+--     role: "driver",
+--     vehicleType: "Bicycle",
+--     licenseNumber: "DL789012",
+--     rating: 4.8,
+--     totalDeliveries: 189,
+--     currentLocation: {
+--       latitude: 40.7589,
+--       longitude: -73.9851,
+--       address: "Midtown"
+--     },
+--     status: "active",
+--     earnings: 980.75,
+--     createdAt: new Date(),
+--     updatedAt: new Date()
+--   }
+-- ])
+
+-- Seed Sample Customers
+-- db.users.insertMany([
+--   {
+--     email: "john@example.com",
+--     password: "$2a$12$hashed_password_here", // bcrypt hash of "password123"
+--     firstName: "John",
+--     lastName: "Doe",
+--     phone: "+1-555-0001",
+--     role: "user",
+--     addresses: [
+--       {
+--         type: "home",
+--         street: "123 Main St, Apt 4B",
+--         city: "New York",
+--         state: "NY",
+--         zipCode: "10001",
+--         isDefault: true
+--       }
+--     ],
+--     createdAt: new Date(),
+--     updatedAt: new Date()
+--   },
+--   {
+--     email: "jane@example.com",
+--     password: "$2a$12$hashed_password_here", // bcrypt hash of "password123"
+--     firstName: "Jane",
+--     lastName: "Smith",
+--     phone: "+1-555-0002",
+--     role: "user",
+--     addresses: [
+--       {
+--         type: "home",
+--         street: "456 Oak Ave",
+--         city: "Brooklyn",
+--         state: "NY",
+--         zipCode: "11201",
+--         isDefault: true
+--       }
+--     ],
+--     createdAt: new Date(),
+--     updatedAt: new Date()
+--   }
+-- ])
+
+-- This script serves as documentation for the seed data structure
+-- Actual data insertion would be done via MongoDB operations or Node.js scripts

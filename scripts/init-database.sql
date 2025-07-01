@@ -1,0 +1,108 @@
+-- QuickMart Database Initialization Script
+-- This script sets up the basic structure for MongoDB collections
+-- Note: MongoDB is schemaless, but this represents the expected document structure
+
+-- Users Collection Structure
+-- {
+--   _id: ObjectId,
+--   email: String (unique),
+--   password: String (hashed),
+--   firstName: String,
+--   lastName: String,
+--   phone: String,
+--   role: String (enum: 'user', 'admin', 'driver'),
+--   addresses: [
+--     {
+--       type: String (enum: 'home', 'work', 'other'),
+--       street: String,
+--       city: String,
+--       state: String,
+--       zipCode: String,
+--       isDefault: Boolean
+--     }
+--   ],
+--   createdAt: Date,
+--   updatedAt: Date
+-- }
+
+-- Products Collection Structure
+-- {
+--   _id: ObjectId,
+--   name: String,
+--   description: String,
+--   price: Number,
+--   category: String,
+--   stock: Number,
+--   lowStockAlert: Number,
+--   image: String (URL),
+--   rating: Number,
+--   totalSales: Number,
+--   status: String (enum: 'active', 'inactive', 'low_stock', 'out_of_stock'),
+--   createdAt: Date,
+--   updatedAt: Date
+-- }
+
+-- Orders Collection Structure
+-- {
+--   _id: ObjectId,
+--   userId: ObjectId (ref: Users),
+--   items: [
+--     {
+--       productId: ObjectId (ref: Products),
+--       name: String,
+--       price: Number,
+--       quantity: Number
+--     }
+--   ],
+--   total: Number,
+--   subtotal: Number,
+--   tax: Number,
+--   deliveryFee: Number,
+--   status: String (enum: 'pending', 'preparing', 'in_transit', 'delivered', 'cancelled'),
+--   deliveryAddress: {
+--     street: String,
+--     city: String,
+--     state: String,
+--     zipCode: String
+--   },
+--   driverId: ObjectId (ref: Users),
+--   estimatedDeliveryTime: Date,
+--   actualDeliveryTime: Date,
+--   createdAt: Date,
+--   updatedAt: Date
+-- }
+
+-- Drivers Collection Structure (subset of Users with role: 'driver')
+-- {
+--   _id: ObjectId,
+--   email: String,
+--   password: String,
+--   firstName: String,
+--   lastName: String,
+--   phone: String,
+--   role: 'driver',
+--   vehicleType: String,
+--   licenseNumber: String,
+--   rating: Number,
+--   totalDeliveries: Number,
+--   currentLocation: {
+--     latitude: Number,
+--     longitude: Number,
+--     address: String
+--   },
+--   status: String (enum: 'active', 'offline', 'busy'),
+--   earnings: Number,
+--   createdAt: Date,
+--   updatedAt: Date
+-- }
+
+-- Create indexes for better performance
+-- db.users.createIndex({ "email": 1 }, { unique: true })
+-- db.products.createIndex({ "category": 1 })
+-- db.products.createIndex({ "name": "text", "description": "text" })
+-- db.orders.createIndex({ "userId": 1 })
+-- db.orders.createIndex({ "status": 1 })
+-- db.orders.createIndex({ "createdAt": -1 })
+
+-- This script serves as documentation for the MongoDB collections structure
+-- MongoDB collections will be created automatically when first document is inserted
